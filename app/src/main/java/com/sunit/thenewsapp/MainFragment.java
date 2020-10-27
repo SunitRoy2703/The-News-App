@@ -82,7 +82,7 @@ public class MainFragment extends Fragment implements  SwipeRefreshLayout.OnRefr
 
         swipeRefreshLayout = v.findViewById(R.id.swipe_refresh_layout);
         swipeRefreshLayout.setOnRefreshListener(this);
-        swipeRefreshLayout.setColorSchemeResources(R.color.colorAccent);
+        swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimaryDark);
 
         topHeadline = v.findViewById(R.id.topheadelines);
         recyclerView = v.findViewById(R.id.recyclerView);
@@ -256,16 +256,14 @@ public class MainFragment extends Fragment implements  SwipeRefreshLayout.OnRefr
     @Override
     public void onRefresh() {
         LoadJson("");
+        swipeRefreshLayout.setRefreshing(false);
     }
 
     private void onLoadingSwipeRefresh(final String keyword){
 
-        swipeRefreshLayout.post(
-                new Runnable() {
-                    @Override
-                    public void run() {
-                        LoadJson(keyword);
-                    }
+        final boolean post = swipeRefreshLayout.post(
+                () -> {
+                    LoadJson(keyword);
                 }
         );
 

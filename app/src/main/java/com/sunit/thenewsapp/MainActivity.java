@@ -26,9 +26,9 @@ public class MainActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        toolbar = findViewById(R.id.toolbar2);
-//        setActionBar(toolbar);
-//        getActionBar().setTitle("News");
+        toolbar = findViewById(R.id.toolbar2);
+        setActionBar(toolbar);
+        getActionBar().setTitle(" The News App");
 
 
         viewPager = findViewById(R.id.viewPager);
